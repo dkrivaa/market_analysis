@@ -8,3 +8,5 @@ import engine
 
 engine.page_header()
 
+st.write(engine.get_composite())
+

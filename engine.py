@@ -19,6 +19,21 @@ def page_header():
 
 # DATA
 
+
+def get_composite():
+    # Function to get the latest data on Nasdaq Composite
+    url = 'https://www.investing.com/indices/nasdaq-composite'
+    response = requests.get(url)
+    if response.status_code == 200:
+        soup = BeautifulSoup(response.content, 'lxml')
+        latest = soup.find('div', class_='text-5xl font-bold leading-9 md:text-[42px] md:leading-[60px] text-[#232526]')
+    if latest is not None:
+        latest_composite = latest.text
+        return latest_composite
+
+
+
+
 def get_data():
     # Function to get stock data
     url = 'https://stockanalysis.com/api/screener/s/f?m=marketCap&s=desc&c=no,s,n,marketCap,price,change,revenue,volume,industry,sector,revenueGrowth,netIncome,fcf,netCash&cn=0&f=exchange-is-NASDAQ&p=2&dd=true&i=allstocks'
