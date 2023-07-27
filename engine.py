@@ -62,7 +62,7 @@ def sector():
     sectors = df['sector'].unique().tolist()
     df = df.groupby(df['sector'])['change'].mean()
     for i in range(0, len(df)):
-        calc = float(df.iloc[i]['change']) / 100
+        calc = float(df.iloc[i][1]) / 100
         chg = f'{calc:.2%}'
         name = df.iloc[i]['sector']
         st.metric(name,
