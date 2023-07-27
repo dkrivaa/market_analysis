@@ -10,5 +10,10 @@ engine.page_header()
 
 engine.get_composite()
 
-engine.top_5()
-engine.low_5()
+with st.container():
+    cols = st.columns(2)
+    with cols[0]:
+        engine.top_5()
+    with cols[1]:
+        engine.low_5()
+
