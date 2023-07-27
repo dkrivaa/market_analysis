@@ -28,7 +28,7 @@ def get_composite():
         soup = BeautifulSoup(response.content, 'lxml')
         latest = soup.find('div', class_='text-5xl font-bold leading-9 md:text-[42px] md:leading-[60px] text-[#232526]')
         absolute_change = soup.find('div', class_='text-base font-bold leading-6 md:text-xl md:leading-7 rtl:force-ltr')
-        prev_close = soup.find('div', class_='key-info_dd-numeric__ZQFIs')
+        prev_close = soup.find('span', class_='key-info_dd-numeric__ZQFIs')
     if latest is not None:
         latest_composite = latest.text
     if absolute_change is not None:
