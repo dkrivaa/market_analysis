@@ -61,7 +61,7 @@ def sector():
     df = df.groupby(df['sector'])['change'].mean()
     for i in range(0, len(df)):
         x = df.iloc[i]
-    y = list(df.groups.keys())
+    y = list(df.groupby.keys())
     st.write(y)
 
 
