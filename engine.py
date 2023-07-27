@@ -67,4 +67,15 @@ def top_5():
         st.metric(name,
                   value=top_5.iloc[i]['price'],
                   delta=chg)
-    st.write(top_5)
+
+def low_5():
+    # Function to get bottom 5 movers of the day
+    df = get_data()
+    low_5 = df.nsmallest(5, 'change', )
+    for i in range(0, len(low_5)):
+        calc = float(low_5.iloc[i]['change']) / 100
+        chg = f'{calc:.2%}'
+        name = low_5.iloc[i]['company name']
+        st.metric(name,
+                  value=low_5.iloc[i]['price'],
+                  delta=chg)
