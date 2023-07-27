@@ -27,9 +27,19 @@ def get_composite():
     if response.status_code == 200:
         soup = BeautifulSoup(response.content, 'lxml')
         latest = soup.find('div', class_='text-5xl font-bold leading-9 md:text-[42px] md:leading-[60px] text-[#232526]')
+        absolute_change = soup.find('div', class_='<div class="text-base font-bold leading-6 md:text-xl md:leading-7 rtl:force-ltr">+130.80</div>')
+        percent_change = soup.find('div', class_='text-base font-bold leading-6 md:text-xl md:leading-7 rtl:force-ltr')
     if latest is not None:
         latest_composite = latest.text
         return latest_composite
+    if absolute_change is not None:
+        latest_abs_change = absolute_change.text
+        return latest_abs_change
+    if percent_change is not None:
+        latest_pct_change = percent_change.text
+        return latest_pct_change
+
+    st.metric('Nasdaq Composite', value='latest_composite', delta='latest_pct_change')
 
 
 
