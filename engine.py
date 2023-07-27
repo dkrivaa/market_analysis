@@ -60,4 +60,9 @@ def top_5():
     # Function to get top 5 movers of the day
     df = get_data()
     top_5 = df.nlargest(5, 'change', )
+    for i in len(top_5):
+        chg = ('{:.2%}'.format(float(top_5['change']) / 100))
+        st.metric(top_5['company name'][i],
+                  value=top_5['price'][i],
+                  delta=chg)
     st.write(top_5)
