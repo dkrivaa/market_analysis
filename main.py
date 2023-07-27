@@ -9,6 +9,7 @@ import engine
 engine.page_header()
 
 engine.get_composite()
+st.markdown('___')
 
 with st.container():
     cols = st.columns(2)
