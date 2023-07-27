@@ -16,7 +16,6 @@ def page_header():
     st.markdown('___')
 
 
-
 # DATA
 
 
@@ -60,9 +59,11 @@ def get_data():
 def sector():
     df = get_data()
     df = df.groupby(df['sector'])['change'].mean()
+    x = df['change'].tolist()
+    y = df['sector'].tolist()
 
 
-    st.write(len(df))
+    st.write(x)
     st.write(df)
 
 def top_5():
