@@ -60,7 +60,7 @@ def sector():
     df = get_data()
     df = df.groupby(df['sector'])['change'].mean()
     # x = df['change'].tolist()
-    # y = df['sector'].tolist()
+    y = df['sector'].tolist()
 
     st.write(type(df))
     st.write(df)
