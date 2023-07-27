@@ -39,8 +39,6 @@ def get_composite():
     st.metric('Nasdaq Composite', value=latest_composite, delta=latest_abs_change)
 
 
-
-
 def get_data():
     # Function to get stock data
     url = 'https://stockanalysis.com/api/screener/s/f?m=marketCap&s=desc&c=no,s,n,marketCap,price,change,revenue,volume,industry,sector,revenueGrowth,netIncome,fcf,netCash&cn=0&f=exchange-is-NASDAQ&p=2&dd=true&i=allstocks'
@@ -57,3 +55,7 @@ def get_data():
                             'fcf': 'free_cash_flow', 'netCash': 'net_cash_debt'})
     df.drop('no', axis=1, inplace=True)
     return df
+
+def top_5():
+    df = get_data()
+    st.write(df)
