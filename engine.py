@@ -61,7 +61,7 @@ def top_5():
     df = get_data()
     top_5 = df.nlargest(5, 'change', )
     for i in range(0, len(top_5)):
-        chg = '{:.2%}'.format(0.35)   # float(top_5['change'][i]) / 100
+        chg = f'{0.35:.2%}'  # float(top_5['change'][i]) / 100
         st.metric(top_5['company name'][i],
                   value=top_5['price'][i],
                   delta=chg)
