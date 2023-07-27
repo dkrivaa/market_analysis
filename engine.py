@@ -62,8 +62,9 @@ def sector():
     # x = df['change'].tolist()
     # y = df['sector'].tolist()
 
-    st.write(df.columns)
+    st.write(type(df))
     st.write(df)
+
 
 def top_5():
     # Function to get top 5 movers of the day
