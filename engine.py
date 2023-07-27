@@ -57,5 +57,7 @@ def get_data():
     return df
 
 def top_5():
+    # Function to get top 5 movers of the day
     df = get_data()
-    st.write(df)
+    top_5 = df.nlargest(5, 'change', )
+    st.write(top_5)
