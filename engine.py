@@ -36,7 +36,7 @@ def get_composite():
     if percent_change is not None:
         latest_pct_change = percent_change.text
 
-    st.metric('Nasdaq Composite', value=latest_composite, delta=[latest_abs_change, 2])
+    st.metric('Nasdaq Composite', value=latest_composite, delta=(latest_abs_change, 2))
 
 
 
