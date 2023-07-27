@@ -37,9 +37,9 @@ def get_composite():
         previous_close = prev_close.text
 
     abs_chg = latest_abs_change[1:]
-    st.write(abs_chg)
 
     st.metric('Nasdaq Composite', value=latest_composite, delta=latest_abs_change)
+    st.metric('', value=None, delta=int(abs_chg)/int(previous_close))
 
 
 
