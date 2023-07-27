@@ -62,6 +62,7 @@ def sector():
     sectors = df['sector'].unique().tolist()
 
     st.write(sectors)
+    st.write(df)
 
 def top_5():
     # Function to get top 5 movers of the day
