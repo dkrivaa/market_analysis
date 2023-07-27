@@ -56,6 +56,11 @@ def get_data():
     df.drop('no', axis=1, inplace=True)
     return df
 
+
+def industry():
+    df = get_data()
+    st.write(df)
+
 def top_5():
     # Function to get top 5 movers of the day
     df = get_data()
