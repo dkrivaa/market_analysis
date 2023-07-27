@@ -57,9 +57,11 @@ def get_data():
     return df
 
 
-def industry():
+def sector():
     df = get_data()
-    st.write(df)
+    sectors = df['sector'].unique().tolist()
+
+    st.write(sectors)
 
 def top_5():
     # Function to get top 5 movers of the day
