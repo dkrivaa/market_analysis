@@ -73,7 +73,7 @@ def sector():
     df = df.reset_index()
     df.columns = ['sector', 'value']
     df['value'] = df['value']/100
-    df['color'] = df['value'].apply(lambda x: 'red' if x < 0 else 'green')
+    df['color'] = df['value'].apply(lambda x: '#D51A05' if x < 0 else '#56BF11')
     c = alt.Chart(df).mark_bar().encode(
         x=alt.X('value', axis=alt.Axis(format='%')),
         y='sector',
