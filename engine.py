@@ -86,8 +86,7 @@ def big_10():
     df = get_data()
     big_10 = df.nlargest(10, 'marketCap')
     big_10['change'] = big_10['change']/100
-    big_10['color'] = big_10['value'].apply(lambda x: 'red' if x < 0 else 'green')
-
+    big_10['color'] = big_10['change'].apply(lambda x: 'red' if x < 0 else 'green')
     c = alt.Chart(big_10).mark_bar().encode(
         x=alt.X('change', axis=alt.Axis(format='%')),
         y='company name',
