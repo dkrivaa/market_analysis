@@ -83,7 +83,7 @@ def sector():
 def big_10():
     df = get_data()
     big_10 = df.nlargest(10, 'marketCap')
-    st.write(big_10)
+    big_10['change'] = big_10['change']/100
     c = alt.Chart(big_10).mark_bar().encode(
         x=alt.X('change', axis=alt.Axis(format='%')),
         y='company name'
