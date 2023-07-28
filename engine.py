@@ -84,6 +84,11 @@ def big_10():
     df = get_data()
     big_10 = df.nlargest(10, 'marketCap')
     st.write(big_10)
+    c = alt.Chart(df).mark_bar().encode(
+        x=alt.X('change', axis=alt.Axis(format='%')),
+        y='company name'
+    )
+    st.altair_chart(c)
 
 def top_5():
     # Function to get top 5 movers of the day
