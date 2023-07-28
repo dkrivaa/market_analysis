@@ -65,6 +65,7 @@ def sector():
         x_list.append(x)
     y = df.unique()
     st.write(x)
+    st.write(df)
 
 
 def top_5():
