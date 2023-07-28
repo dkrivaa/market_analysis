@@ -63,9 +63,12 @@ def sector():
     for i in range(0, len(df)):
         x = df.iloc[i]
         x_list.append(x)
-
-    st.write(df.axes)
-
+    y_list = df.axes
+    c = alt.Chart.mark_bar().encode(
+        x=x_list,
+        y=y_list
+    )
+    st.altair_chart(c)
 
 def top_5():
     # Function to get top 5 movers of the day
