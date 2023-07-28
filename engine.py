@@ -77,7 +77,7 @@ def sector():
     c = alt.Chart(df).mark_bar().encode(
         x=alt.X('value', axis=alt.Axis(format='%')),
         y='sector',
-        color=alt.Color('Color:N', scale=None)
+        color=alt.Color('color:N', scale=None)
     )
     st.altair_chart(c)
 
@@ -86,9 +86,12 @@ def big_10():
     df = get_data()
     big_10 = df.nlargest(10, 'marketCap')
     big_10['change'] = big_10['change']/100
+    big_10['color'] = big_10['value'].apply(lambda x: 'red' if x < 0 else 'green')
+
     c = alt.Chart(big_10).mark_bar().encode(
         x=alt.X('change', axis=alt.Axis(format='%')),
-        y='company name'
+        y='company name',
+        color=alt.Color('color:N', scale=None)
     )
     st.altair_chart(c)
 
