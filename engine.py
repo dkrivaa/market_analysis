@@ -136,6 +136,6 @@ def ticker():
             ticker = st.selectbox('Choose Ticker', df['symbol'], )
         with cols[1]:
             name = st.selectbox('Choose Company', df['company name'])
-
+    st.write(ticker, name)
     st.write(df)
 
