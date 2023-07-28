@@ -5,8 +5,6 @@ import engine
 
 engine.page_header()
 
-engine.sector()
-
 with st.container():
     cols = st.columns(2)
     with cols[0]:
