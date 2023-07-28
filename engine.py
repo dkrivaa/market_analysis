@@ -93,9 +93,9 @@ def big_10():
         y='company name',
         color=alt.Color('color:N', scale=None)
     ).properties(title={
-                'text': 'BIG ',
+                'text': 'BIG 10',
                 'align': 'center',
-                'fontSize': 20
+                'fontSize': 40
     })
 
     st.altair_chart(c)
