@@ -132,9 +132,11 @@ def ticker():
                 , unsafe_allow_html=True)
 
     def tick_to_name():
+        st.session_state.tick = 'AAPL'
         st.session_state.nme = df.loc[df['symbol'] == st.session_state.tick, df['company name']]
 
     def name_to_tick():
+        st.session_state.nme = 'Apple Inc.'
         st.session_state.tick = df.loc[df['company name'] == st.session_state.nme, df['symbol']]
 
     with st.container():
