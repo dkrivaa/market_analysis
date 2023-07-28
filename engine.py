@@ -124,3 +124,7 @@ def low_5():
         st.metric(name,
                   value=low_5.iloc[i]['price'],
                   delta=chg)
+
+
+def ticker():
+    df = get_data()
