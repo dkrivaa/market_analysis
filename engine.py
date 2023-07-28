@@ -67,6 +67,7 @@ def sector():
     df = pd.Series(df)
     df = df.reset_index()
     df.columns = ['sector', 'value']
+    df['value'] = df['value']/100
     c = alt.Chart(df).mark_bar().encode(
         x=alt.X('value', axis=alt.Axis(format='%')),
         y='sector'
