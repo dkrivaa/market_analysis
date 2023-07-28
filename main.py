@@ -11,6 +11,7 @@ engine.page_header()
 engine.get_composite()
 st.markdown('___')
 
+engine.sector()
 with st.container():
     cols = st.columns(2)
     with cols[0]:
