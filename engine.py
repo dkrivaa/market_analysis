@@ -61,7 +61,7 @@ def sector():
     df = df.groupby(df['sector'])['change'].mean()
     x_list = []
     for i in range(0, len(df)):
-        x = df.iloc[i]
+        x = float(df.iloc[i])
         x_list.append(x)
     y_list = df.axes
     c = alt.Chart(df).mark_bar().encode(
