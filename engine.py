@@ -134,7 +134,7 @@ def ticker():
         cols = st.columns(2)
         with cols[0]:
             ticker = st.selectbox('Choose Ticker', df['symbol'])
-            if ticker not in st.session_state:
+            if 'ticker' not in st.session_state:
                 st.session_state.ticker = ticker
         with cols[1]:
             name = st.selectbox('Choose Company', df['company name'])
