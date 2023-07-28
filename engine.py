@@ -59,11 +59,11 @@ def get_data():
 def sector():
     df = get_data()
     df = df.groupby(df['sector'])['change'].mean()
-    x_list = []
+    y_list = []
     for i in range(0, len(df)):
-        x = float(df.iloc[i])
-        x_list.append(x)
-    y_list = df.axes
+        y = float(df.iloc[i])
+        y_list.append(x)
+    x_list = df.axes
     c = alt.Chart(df).mark_bar().encode(
         x=x_list,
         y=y_list
