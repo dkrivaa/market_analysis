@@ -138,6 +138,7 @@ def ticker():
                 st.session_state.ticker = ticker
             else:
                 st.session_state.ticker = ticker
+            name = df.loc[['symbol'] == st.session_state.ticker, ['company name']]
         with cols[1]:
             name = st.selectbox('Choose Company', df['company name'])
             if 'name' not in st.session_state:
