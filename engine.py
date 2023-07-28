@@ -65,8 +65,8 @@ def sector():
     #     x_list.append(x)
     # y_list = df.axes
     c = alt.Chart(df).mark_bar().encode(
-        x=df,
-        y=df.keys()
+        x='0',
+        y='index'
     )
     st.altair_chart(c)
 
