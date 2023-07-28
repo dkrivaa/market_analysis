@@ -130,16 +130,28 @@ def ticker():
     df = get_data()
     st.markdown(f'<span style="color: #18448c; font-size: 22px"><b>Choose Ticker/Company</b></span>'
                 , unsafe_allow_html=True)
+    st.session_state.ticker = ''
+    st.session_state.name = ''
+
+    def tick_to_name():
+        st.session_state.name = df.loc[df['symbol'] == st.session_state.ticker, df['company name']]
+
+    def name_to_tick():
+        st.session_state.ticker = df.loc[df['company name'] == st.session_state.name, df['symbol']]
+
+
     with st.container():
         cols = st.columns(2)
         with cols[0]:
-            ticker = st.selectbox('Choose Ticker', df['symbol'])
+            ticker = st.selectbox('Choose Ticker', options=df['symbol'],
+                                  key='ticker', on_change=tick_to_name())
             if 'ticker' not in st.session_state:
                 st.session_state.ticker = ticker
             else:
                 st.session_state.ticker = ticker
         with cols[1]:
-            name = st.selectbox('Choose Company', df['company name'])
+            name = st.selectbox('Choose Company', options=df['company name'],
+                                key='name', on_change=name_to_tick())
             if 'name' not in st.session_state:
                 st.session_state.name = name
             else:
