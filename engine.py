@@ -95,7 +95,7 @@ def big_10():
     ).properties(
         title={
                 'text': 'BIG 10',
-                'align': 'left',
+                'align': 'center',
                 'fontSize': 25,
                 'color': '#56BF11'
             }
