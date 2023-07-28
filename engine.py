@@ -94,7 +94,7 @@ def big_10():
         color=alt.Color('color:N', scale=None)
     ).properties(title={
                 'text': 'BIG 10',
-                'align': 'right',
+                'align': 'left',
                 'fontSize': 40
     })
 
