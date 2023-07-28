@@ -62,7 +62,7 @@ def sector():
     y_list = []
     for i in range(0, len(df)):
         y = float(df.iloc[i])
-        y_list.append(x)
+        y_list.append(y)
     x_list = df.axes
     c = alt.Chart(df).mark_bar().encode(
         x=x_list,
