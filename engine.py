@@ -64,7 +64,7 @@ def sector():
         x = df.iloc[i]
         x_list.append(x)
     y_list = df.axes
-    c = alt.Chart.mark_bar().encode(
+    c = alt.Chart(df).mark_bar().encode(
         x=x_list,
         y=y_list
     )
