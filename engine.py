@@ -64,7 +64,7 @@ def sector():
         x = df.iloc[i]
         x_list.append(x)
 
-    st.write(type(df))
+    st.write(df.axes)
 
 
 def top_5():
