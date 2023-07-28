@@ -92,7 +92,7 @@ def big_10():
         x=alt.X('change', axis=alt.Axis(format='%')),
         y='company name',
         color=alt.Color('color:N', scale=None)
-    ).prperties(title={
+    ).properties(title={
                 'text': 'BIG 10',
                 'align': 'center',
                 'fontSize': 20
