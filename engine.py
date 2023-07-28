@@ -88,11 +88,11 @@ def big_10():
     big_10 = df.nlargest(10, 'marketCap')
     big_10['change'] = big_10['change']/100
     big_10['color'] = big_10['change'].apply(lambda x: '#D51A05' if x < 0 else '#56BF11')
-    c = alt.Chart(big_10).mark_bar().encode(
+    c = alt.Chart(big_10, title = 'BIG 10').mark_bar().encode(
         x=alt.X('change', axis=alt.Axis(format='%')),
         y='company name',
         color=alt.Color('color:N', scale=None)
-    ).title = 'BIG 10'
+    )
 
     st.altair_chart(c)
 
