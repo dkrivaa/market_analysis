@@ -80,10 +80,10 @@ def sector():
     st.altair_chart(c)
 
 
-def big_5():
+def big_10():
     df = get_data()
-    st.write(df)
-    # big_5 = df.nlargest(5, 'marketCap')
+    big_10 = df.nlargest(10, 'marketCap')
+    st.write(big_10)
 
 def top_5():
     # Function to get top 5 movers of the day
