@@ -137,8 +137,10 @@ def ticker():
         with cols[1]:
             name = st.selectbox('Choose Company', df['company name'])
     st.write(ticker, name)
+    st.write(st.session_state)
     st.write(df)
 
 def test(var):
     if var not in st.session_state:
         st.session_state.var = var
+
