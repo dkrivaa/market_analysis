@@ -133,7 +133,7 @@ def ticker():
     with st.container():
         cols = st.columns(2)
         with cols[0]:
-            ticker = st.selectbox('Choose Ticker', df['symbol'])
+            ticker = st.selectbox('Choose Ticker', df['symbol'], on_change=show_ticker())
             if 'ticker' not in st.session_state:
                 st.session_state.ticker = ticker
         with cols[1]:
@@ -143,7 +143,6 @@ def ticker():
     st.write(st.session_state)
     st.write(df)
 
-def test(var):
-    if var not in st.session_state:
-        st.session_state.var = var
+def show_ticker():
+    st.write('hello')
 
