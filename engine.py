@@ -79,6 +79,12 @@ def sector():
     )
     st.altair_chart(c)
 
+
+def big_5():
+    df = get_data()
+    st.write(df)
+    # big_5 = df.nlargest(5, 'marketCap')
+
 def top_5():
     # Function to get top 5 movers of the day
     df = get_data()
