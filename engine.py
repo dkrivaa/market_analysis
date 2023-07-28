@@ -144,5 +144,5 @@ def ticker():
     st.write(df)
 
 def show_ticker():
-    st.write('hello')
+    return st.write('hello')
 
