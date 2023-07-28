@@ -132,26 +132,26 @@ def ticker():
                 , unsafe_allow_html=True)
 
     def tick_to_name():
-        st.session_state.tick = 'AAPL'
-        st.session_state.nme = df.loc[df['symbol'] == st.session_state.tick, df['company name']]
+        pass
+        # st.session_state.tick = 'AAPL'
+        # st.session_state.nme = df.loc[df['symbol'] == st.session_state.tick, df['company name']]
 
     def name_to_tick():
-        st.session_state.nme = 'Apple Inc.'
-        st.session_state.tick = df.loc[df['company name'] == st.session_state.nme, df['symbol']]
+        pass
+        # st.session_state.nme = 'Apple Inc.'
+        # st.session_state.tick = df.loc[df['company name'] == st.session_state.nme, df['symbol']]
 
     with st.container():
         cols = st.columns(2)
         with cols[0]:
-            ticker = st.selectbox('Choose Ticker', options=df['symbol'],
-                                  key='tick', on_change=tick_to_name())
+            ticker = st.selectbox('Choose Ticker', options=df['symbol'])
             if 'tick' not in st.session_state:
                 st.session_state.tick = ticker
             else:
                 st.session_state.tick = ticker
 
         with cols[1]:
-            name = st.selectbox('Choose Company', options=df['company name'],
-                                key='nme', on_change=name_to_tick())
+            name = st.selectbox('Choose Company', options=df['company name'])
             if 'nme' not in st.session_state:
                 st.session_state.nme = name
             else:
