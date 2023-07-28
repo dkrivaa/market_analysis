@@ -95,7 +95,7 @@ def big_10():
     ).properties(title={
                 'text': 'BIG 10',
                 'align': 'left',
-                'fontSize': 40
+                'fontSize': 25
     })
 
     st.altair_chart(c)
