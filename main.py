@@ -7,6 +7,5 @@ engine.page_header()
 
 engine.big_10()
 
-engine.sector()
 
 
