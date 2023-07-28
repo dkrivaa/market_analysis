@@ -62,8 +62,8 @@ def sector():
     x_list = []
     for i in range(0, len(df)):
         x = df.iloc[i]
+        st.write(x)
         x_list.append(x)
-    y = df.unique()
     st.write(x)
     st.write(df)
 
