@@ -59,10 +59,12 @@ def get_data():
 def sector():
     df = get_data()
     df = df.groupby(df['sector'])['change'].mean()
+    x_list = []
     for i in range(0, len(df)):
         x = df.iloc[i]
+        x_list.append(x)
     y = df.unique()
-    st.write(y)
+    st.write(x)
 
 
 def top_5():
