@@ -132,9 +132,9 @@ def ticker():
                 , unsafe_allow_html=True)
     cols = st.columns(2)
     with cols[0]:
-        st.selectbox('Choose Ticker', df['symbol'], )
+        ticker = st.selectbox('Choose Ticker', df['symbol'], )
     with cols[1]:
-        st.selectbox('Choose Company', df['company name'])
+        name = st.selectbox('Choose Company', df['company name'])
 
     st.write(df)
 
