@@ -64,11 +64,15 @@ def sector():
     #     x = float(df.iloc[i])
     #     x_list.append(x)
     # y_list = df.axes
-    c = alt.Chart(df).mark_bar().encode(
-        x='0',
-        y='index'
-    )
-    st.altair_chart(c)
+    df = pd.Series(df)
+    df = df.reset_index()
+    df.columns = ['sector', 'value']
+    st.write(df)
+    # c = alt.Chart(df).mark_bar().encode(
+    #     x='0',
+    #     y='index'
+    # )
+    # st.altair_chart(c)
 
 def top_5():
     # Function to get top 5 movers of the day
