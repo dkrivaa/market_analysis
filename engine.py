@@ -67,9 +67,8 @@ def sector():
     df = pd.Series(df)
     df = df.reset_index()
     df.columns = ['sector', 'value']
-    st.write(df)
     c = alt.Chart(df).mark_bar().encode(
-        x='value',
+        x=alt.X('value', axis=alt.Axis(format='%')),
         y='sector'
     )
     st.altair_chart(c)
