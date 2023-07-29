@@ -9,6 +9,6 @@ engine.page_header()
 
 df = engine.get_data()
 ticker = 'CSCO'
-name = df.loc[df['symbol'] == ticker, df['company name']]
+name = df.loc[df['symbol'] == ticker, ['company name']]
 st.write(name)
 
