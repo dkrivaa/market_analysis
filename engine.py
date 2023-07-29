@@ -173,7 +173,18 @@ def ticker():
 
             url = 'https://stockanalysis.com/api/charts/s/' + str(st.session_state.ticker) + '/1Y/l'
 
-            st.write(url)
+            response = requests.get(url)
+            # Check if the request was successful (status code 200)
+            if response.status_code == 200:
+                # Parse the JSON data
+                company_data = json.loads(response.text)
+            # Extract data
+            nested_data = company_data['data']['data']
+            # Making dataframe with all stock data
+            dfc = pd.DataFrame(nested_data)
+
+            st.write(dfc)
+
 
 
 
