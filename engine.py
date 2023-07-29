@@ -155,9 +155,9 @@ def ticker():
             nme = st.selectbox('Choose Company', options=df['company name'],
                                 key='name')
             if 'name' not in st.session_state:
-                st.session_state.name = name
+                st.session_state.name = nme
             else:
-                st.session_state.name = name
+                st.session_state.name = nme
     st.write(st.session_state)
     st.write(df)
 
