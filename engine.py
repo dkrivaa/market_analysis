@@ -185,8 +185,8 @@ def ticker():
             # Making dataframe with all stock data
             dfc = pd.DataFrame(nested_data)
             dfc.drop('o', axis=1, inplace=True)
-            dfc['t'] = pd.to_datetime(dfc['t'], unit='s').strftime("%d.%m.%Y")
-            # dfc['t'] = (dfc['t'].dt.date).strftime("%d.%m.%Y")
+            dfc['t'] = pd.to_datetime(dfc['t'], unit='s')
+            dfc['t'] = (dfc['t'].dt.date)
             date_list = dfc['t'].tolist()
             price_list = dfc['c'].tolist()
             st.write(date_list)
