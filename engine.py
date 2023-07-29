@@ -157,8 +157,8 @@ def ticker():
 
     with st.container():
         if 'company' in st.session_state:
-            cname = st.session_state.company['symbol']
-            st.write(cname)
+            st.write(st.session_state.company)
+
 
             # cname = st.session_state.company['company name'][1]
             # price = st.session_state.company['price'][1]
