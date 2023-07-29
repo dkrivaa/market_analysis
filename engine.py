@@ -174,34 +174,34 @@ def ticker():
                           value=f"{price}",
                           delta=f"{chg}")
 
-            with cols[1]:
-                # Getting 1 year data for chosen company
-                url = 'https://stockanalysis.com/api/charts/s/' + str(st.session_state.ticker) + '/1Y/l'
+                with cols[1]:
+                    # Getting 1 year data for chosen company
+                    url = 'https://stockanalysis.com/api/charts/s/' + str(st.session_state.ticker) + '/1Y/l'
 
-                response = requests.get(url)
-                # Check if the request was successful (status code 200)
-                if response.status_code == 200:
-                    # Parse the JSON data
-                    company_data = json.loads(response.text)
-                # Extract data
-                nested_data = company_data['data']
-                # Making dataframe with all stock data
-                dfc = pd.DataFrame(nested_data)
-                dfc.drop('o', axis=1, inplace=True)
-                dfc['t'] = pd.to_datetime(dfc['t'], unit='s')
-                dfc['t'] = dfc['t'].dt.date
+                    response = requests.get(url)
+                    # Check if the request was successful (status code 200)
+                    if response.status_code == 200:
+                        # Parse the JSON data
+                        company_data = json.loads(response.text)
+                    # Extract data
+                    nested_data = company_data['data']
+                    # Making dataframe with all stock data
+                    dfc = pd.DataFrame(nested_data)
+                    dfc.drop('o', axis=1, inplace=True)
+                    dfc['t'] = pd.to_datetime(dfc['t'], unit='s')
+                    dfc['t'] = dfc['t'].dt.date
 
 
-                if dfc.loc[0, 'c'] < dfc['c'].iloc[-1]:
-                    color = '#419C26'
-                else:
-                    color = '#9C3426'
+                    if dfc.loc[0, 'c'] < dfc['c'].iloc[-1]:
+                        color = '#419C26'
+                    else:
+                        color = '#9C3426'
 
-                c = alt.Chart(dfc, title='Last 12 Months').mark_line(color=color).encode(
-                    x=alt.X('t:T', title='Date', ),
-                    y=alt.Y('c:Q', title='Stock Price'),
-                )
-                st.altair_chart(c)
+                    c = alt.Chart(dfc, title='Last 12 Months').mark_line(color=color).encode(
+                        x=alt.X('t:T', title='Date', ),
+                        y=alt.Y('c:Q', title='Stock Price'),
+                    )
+                    st.altair_chart(c)
 
 
 
