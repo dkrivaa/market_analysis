@@ -147,7 +147,7 @@ def ticker():
     st.write(st.session_state)
     st.write(df)
 
-def get_company_data():
+# def get_company_data():
 
 
 
