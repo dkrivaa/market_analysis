@@ -152,7 +152,8 @@ def ticker():
                                 key='name', on_change=get_data_name)
 
     if 'company' in st.session_state:
-        st.write(st.session_state.company)
+        st.write(st.session_state.company['company name'])
+
 
     st.write(st.session_state)
 
