@@ -197,8 +197,8 @@ def ticker():
                 price_list.append(p)
 
             c = alt.Chart(dfc).mark_line().encode(
-                x='date_list:T',
-                y='price_list:Q',
+                x='date_list',
+                y='price_list',
             )
 
             st.altair_chart(c)
