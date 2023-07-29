@@ -187,13 +187,15 @@ def ticker():
             dfc.drop('o', axis=1, inplace=True)
             dfc['t'] = pd.to_datetime(dfc['t'], unit='s')
             dfc['t'] = dfc['t'].dt.date
+            date_list = dfc['t'].tolist()
+            st.write(date_list)
 
-            c = alt.Chart(dfc).mark_line().encode(
-                x = dfc['t'].tolist(),
-                y = dfc['c'].tolist()
-            )
-
-            st.altair_chart(c)
+            # c = alt.Chart(dfc).mark_line().encode(
+            #     x = dfc['t'].tolist(),
+            #     y = dfc['c'].tolist()
+            # )
+            #
+            # st.altair_chart(c)
             st.write(dfc)
 
 
