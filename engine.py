@@ -169,7 +169,6 @@ def ticker():
                       delta=f"{chg}")
 
 
-    st.write(st.session_state)
 
 
 
