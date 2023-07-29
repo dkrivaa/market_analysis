@@ -188,17 +188,17 @@ def ticker():
             dfc['t'] = pd.to_datetime(dfc['t'], unit='s')
             dfc['t'] = dfc['t'].dt.date
 
-            date_list = ['a', 'b', 'c', 'd']
-            price_list = [10,11,15,22]
-            # for i in range(0,len(dfc)):
-            #     d = (dfc['t'][i].strftime("%d.%m.%Y"))
-            #     date_list.append(d)
-            #     p = float(dfc['c'][i])
-            #     price_list.append(p)
+            date_list = []
+            price_list = []
+            for i in range(0,len(dfc)):
+                d = (dfc['t'][i].strftime("%d.%m.%Y"))
+                date_list.append(d)
+                p = float(dfc['c'][i])
+                price_list.append(p)
 
-            c = alt.Chart(dfc).mark_bar().encode(
-                x='date_list:T',
-                y='price_list:Q',
+            c = alt.Chart(dfc).mark_line().encode(
+                x='t:T',
+                y='c:Q',
             )
 
             st.altair_chart(c)
