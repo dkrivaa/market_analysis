@@ -6,7 +6,6 @@ import pandas as pd
 import requests
 import json
 from bs4 import BeautifulSoup
-import openpyxl
 import datetime
 from datetime import datetime
 
@@ -194,10 +193,6 @@ def ticker():
             st.write(dfc)
 
 
-
-            url1 = 'https://www.gov.il/BlobFolder/policy/tableau/he/tableau_BudgetData2022.xlsx'
-            dft = pd.read_excel(url1, engine='openpyxl')
-            st.write(dft)
 
 
 
