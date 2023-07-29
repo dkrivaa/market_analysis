@@ -7,6 +7,8 @@ import requests
 import json
 from bs4 import BeautifulSoup
 import datetime
+from datetime import datetime
+
 
 # LAYOUT
 
@@ -171,6 +173,7 @@ def ticker():
                       value=f"{price}",
                       delta=f"{chg}")
 
+            # Getting 1 year data for chosen company
             url = 'https://stockanalysis.com/api/charts/s/' + str(st.session_state.ticker) + '/1Y/l'
 
             response = requests.get(url)
@@ -183,6 +186,9 @@ def ticker():
             # Making dataframe with all stock data
             dfc = pd.DataFrame(nested_data)
             dfc.drop('o', axis=1, inplace=True)
+            dfc['t'] = (datetime.datetime.fromtimestamp(dfc['t'])).strftime('%Y-%m-%d')
+
+
 
             st.write(dfc)
 
