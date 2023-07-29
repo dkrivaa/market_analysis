@@ -157,7 +157,6 @@ def ticker():
 
     with st.container():
         if 'company' in st.session_state:
-            st.write(st.session_state.company)
             cname = (st.session_state.company['company name']).tolist()
             price = float(st.session_state.company['price'])
             calc = float(st.session_state.company['change']) / 100
