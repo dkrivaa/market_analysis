@@ -144,11 +144,14 @@ def ticker():
         with cols[0]:
             ticker = st.selectbox('Choose Ticker', options=df['symbol'],
                                   key='ticker')
-            st.session_state.name = df.loc[df['symbol'] == st.session_state.ticker, ['company name']]
+            name = df.loc[df['symbol'] == st.session_state.ticker, ['company name']]
+            st.write(name)
 
         with cols[1]:
             name = st.selectbox('Choose Company', options=df['company name'],
                                 key='name')
+            ticker = df.loc[df['company name'] == st.session_state.name, ['symbol']]
+            st.write(ticker)
 
 
     st.write(st.session_state)
