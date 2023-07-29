@@ -191,7 +191,7 @@ def ticker():
             date_list = []
             price_list = []
             for i in range(0,len(dfc)):
-                d = dfc['t'][i].strftime("%d.%m.%Y")
+                d = (dfc['t'][i].strftime("%d.%m.%Y")).astype(str)
                 date_list.append(d)
                 p = float(dfc['c'][i])
                 price_list.append(p)
