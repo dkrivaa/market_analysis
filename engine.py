@@ -159,13 +159,12 @@ def ticker():
         if 'company' in st.session_state:
             st.write(st.session_state.company)
             cname = (st.session_state.company['company name']).tolist()
-            st.write(cname)
-            # price = float(st.session_state.company['price'])
-            # calc = float(st.session_state.company['change']) / 100
-            # chg = f'{calc:.2%}'
-            # st.metric(f"{cname}",
-            #           value=f"{price}",
-            #           delta=f"{chg}")
+            price = float(st.session_state.company['price'])
+            calc = float(st.session_state.company['change']) / 100
+            chg = f'{calc:.2%}'
+            st.metric(f"{cname[0]}",
+                      value=f"{price}",
+                      delta=f"{chg}")
 
 
     st.write(st.session_state)
