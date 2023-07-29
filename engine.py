@@ -140,7 +140,7 @@ def ticker():
     with st.container():
         cols = st.columns(2)
         with cols[0]:
-            ticker = st.selectbox('Choose Ticker', options=df['symbol'],
+            ticker = st.selectbox('Choose Ticker            or', options=df['symbol'],
                                   key='ticker', on_change=get_data_ticker)
 
         with cols[1]:
