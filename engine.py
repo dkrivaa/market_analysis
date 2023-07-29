@@ -171,6 +171,10 @@ def ticker():
                       value=f"{price}",
                       delta=f"{chg}")
 
+    url = 'https://stockanalysis.com/stocks/' + str(cname)
+
+    st.write(url)
+
 
 
 
