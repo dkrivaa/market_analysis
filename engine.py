@@ -191,7 +191,7 @@ def ticker():
                 dfc['t'] = pd.to_datetime(dfc['t'], unit='s')
                 dfc['t'] = dfc['t'].dt.date
 
-                c = alt.Chart(dfc, title='Last 12 Months').mark_area().encode(
+                c = alt.Chart(dfc, title='Last 12 Months').mark_line().encode(
                     x=alt.X('t:T', title='', ),
                     y=alt.Y('c:Q', title='Stock Price'),
                 )
