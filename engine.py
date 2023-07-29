@@ -202,12 +202,12 @@ def ticker():
             st.write(type(date_list[0]))
             st.write(type(price_list[0]))
 
-            # c = alt.Chart(dfc).mark_line().encode(
-            #     x=date_list,
-            #     y=alt.Y(price_list, )
-            # )
-            #
-            # st.altair_chart(c)
+            c = alt.Chart(dfc).mark_line().encode(
+                x=date_list,
+                y=alt.Y(price_list, )
+            )
+
+            st.altair_chart(c)
             st.write(dfc)
 
 
