@@ -135,10 +135,14 @@ def ticker():
         company = df.loc[df['symbol'] == st.session_state.ticker]
         if 'company' not in st.session_state:
             st.session_state.company = company
+        else:
+            st.session_state.company = company
 
     def get_data_name():
         company = df.loc[df['company name'] == st.session_state.name]
         if 'company' not in st.session_state:
+            st.session_state.company = company
+        else:
             st.session_state.company = company
 
     with st.container():
