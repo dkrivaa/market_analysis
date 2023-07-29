@@ -132,18 +132,22 @@ def ticker():
                 , unsafe_allow_html=True)
 
     with st.container():
-        cols = st.columns(2)
+        cols = st.columns([4,1,4])
         with cols[0]:
             ticker = st.selectbox('Choose Ticker', options=df['symbol'],
                                   key='ticker')
 
         with cols[1]:
+            st.write('/')
+
+        with cols[2]:
             name = st.selectbox('Choose Company', options=df['company name'],
                                 key='name')
 
     st.write(st.session_state)
     st.write(df)
 
+def get_company_data():
 
 
 
