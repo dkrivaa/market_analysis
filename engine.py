@@ -142,15 +142,14 @@ def ticker():
     with st.container():
         cols = st.columns(2)
         with cols[0]:
-            symbol_list = df['symbol'].tolist()
-            ticker = st.selectbox('Choose Ticker', options=symbol_list,
+            ticker = st.selectbox('Choose Ticker', options=df['symbol'],
                                   key='ticker', on_change=tick_to_name)
             # name = df.loc[df['symbol'] == st.session_state.ticker, ['company name']]
             # st.write(name)
 
         with cols[1]:
-            name_list = df['company name'].tolist()
-            name = st.selectbox('Choose Company', key='name')
+            name = st.selectbox('Choose Company', options=df['company name'],
+                                key='name')
             # ticker = df.loc[df['company name'] == st.session_state.name, ['symbol']]
             # st.write(ticker)
 
