@@ -145,6 +145,8 @@ def ticker():
             st.session_state.company = company
         else:
             st.session_state.company = company
+        st.session_state.ticker = ((st.session_state.company['symbol']).tolist())[0]
+
 
     with st.container():
         cols = st.columns(2)
