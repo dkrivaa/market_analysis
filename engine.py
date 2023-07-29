@@ -158,12 +158,15 @@ def ticker():
             name = st.selectbox('Choose Company', options=df['company name'],
                                 key='name', on_change=get_data_name)
 
+    st.markdown('___')
+
     with st.container():
         if 'company' in st.session_state:
             cname = ((st.session_state.company['company name']).tolist())[0]
             price = float(st.session_state.company['price'])
             calc = float(st.session_state.company['change']) / 100
             chg = f'{calc:.2%}'
+            st.write('latest change:')
             st.metric(f"{cname}",
                       value=f"{price}",
                       delta=f"{chg}")
