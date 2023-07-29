@@ -171,10 +171,9 @@ def ticker():
                       value=f"{price}",
                       delta=f"{chg}")
 
-            url = 'https://stockanalysis.com/stocks/' + str(st.session_state.ticker)
+            url = 'https://stockanalysis.com/api/charts/s/' + str(st.session_state.ticker) + '/1Y/l'
 
             st.write(url)
-
 
 
 
