@@ -6,7 +6,6 @@ import pandas as pd
 import requests
 import json
 from bs4 import BeautifulSoup
-import datetime
 from datetime import datetime
 
 
@@ -186,7 +185,7 @@ def ticker():
             # Making dataframe with all stock data
             dfc = pd.DataFrame(nested_data)
             dfc.drop('o', axis=1, inplace=True)
-            # dfc['t'] = (datetime.fromtimestamp(dfc['t'])).strftime("%Y-%m-%d %H:%M:%S %Z")
+            dfc['t'] = (datetime.fromtimestamp(dfc['t']))
 
 
 
