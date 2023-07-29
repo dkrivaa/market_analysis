@@ -156,7 +156,7 @@ def ticker():
                                 key='name', on_change=get_data_name)
 
     if 'company' in st.session_state:
-        name = st.session_state.company['company name']
+        name = st.session_state.company['company name'][1]
         price = st.session_state.company['price']
         calc = float(st.session_state.company['change'])/100
         chg = f'{calc:.2%}'
