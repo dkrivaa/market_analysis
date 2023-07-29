@@ -190,18 +190,17 @@ def ticker():
                 dfc.drop('o', axis=1, inplace=True)
                 dfc['t'] = pd.to_datetime(dfc['t'], unit='s')
                 dfc['t'] = dfc['t'].dt.date
-                st.write(len(dfc))
 
-                # if dfc.loc[0, 'c'] < dfc.loc[len(dfc), 'c']:
-                #     color = '#419C26'
-                # else:
-                #     color = '#9C3426'
+                if dfc.loc[0, 'c'] < dfc.loc[len(dfc), 'c']:
+                    color = '#419C26'
+                else:
+                    color = '#9C3426'
 
-                # c = alt.Chart(dfc, title='Last 12 Months').mark_line(color=color).encode(
-                #     x=alt.X('t:T', title='Date', ),
-                #     y=alt.Y('c:Q', title='Stock Price'),
-                # )
-                # st.altair_chart(c)
+                c = alt.Chart(dfc, title='Last 12 Months').mark_line(color=color).encode(
+                    x=alt.X('t:T', title='Date', ),
+                    y=alt.Y('c:Q', title='Stock Price'),
+                )
+                st.altair_chart(c)
 
 
 
