@@ -164,7 +164,7 @@ def ticker():
             price = st.session_state.company['price']
             calc = float(st.session_state.company['change']) / 100
             chg = f'{calc:.2%}'
-            st.metric(f" Stock Price {cname}",
+            st.metric(f" Stock Price {cname[1]}",
                       value=f"{price}",
                       delta=f"{chg}")
 
