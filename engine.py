@@ -186,7 +186,7 @@ def ticker():
             dfc = pd.DataFrame(nested_data)
             dfc.drop('o', axis=1, inplace=True)
             dfc['t'] = pd.to_numeric(dfc['t'])
-            dfc['t'] = (datetime.fromtimestamp(dfc['t']))
+            # dfc['t'] = (datetime.fromtimestamp(dfc['t']))
 
 
 
