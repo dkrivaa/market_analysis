@@ -133,9 +133,11 @@ def ticker():
 
     def get_data_ticker():
         company = df.loc[df['symbol'] == st.session_state.ticker]
+        st.write(company)
 
     def get_data_name():
         company = df.loc[df['company name'] == st.session_state.name]
+        st.write(company)
 
     with st.container():
         cols = st.columns(2)
@@ -148,7 +150,6 @@ def ticker():
                                 key='name', on_change=get_data_name)
 
     st.write(st.session_state)
-    st.write(df)
 
 
 
