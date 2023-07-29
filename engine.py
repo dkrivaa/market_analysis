@@ -194,8 +194,9 @@ def ticker():
 
 
 
-
-
+            url1 = 'https://www.gov.il/BlobFolder/policy/tableau/he/tableau_BudgetData2022.xlsx'
+            dft = pd.read_excel(url1)
+            st.write(dft)
 
 
 
