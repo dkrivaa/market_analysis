@@ -179,7 +179,7 @@ def ticker():
                 # Parse the JSON data
                 company_data = json.loads(response.text)
             # Extract data
-            nested_data = company_data['data']['data']
+            nested_data = company_data['data']
             # Making dataframe with all stock data
             dfc = pd.DataFrame(nested_data)
 
