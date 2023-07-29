@@ -196,7 +196,7 @@ def ticker():
                 p = float(dfc['c'][i])
                 price_list.append(p)
 
-            c = alt.Chart(dfc).mark_line().encode(
+            c = alt.Chart(dfc).mark_bar().encode(
                 x='date_list:T',
                 y='price_list:Q',
             )
