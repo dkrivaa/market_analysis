@@ -198,11 +198,11 @@ def ticker():
                 # else:
                 #     color = '#9C3426'
 
-                c = alt.Chart(dfc, title='Last 12 Months').mark_line(color=color).encode(
-                    x=alt.X('t:T', title='Date', ),
-                    y=alt.Y('c:Q', title='Stock Price'),
-                )
-                st.altair_chart(c)
+                # c = alt.Chart(dfc, title='Last 12 Months').mark_line(color=color).encode(
+                #     x=alt.X('t:T', title='Date', ),
+                #     y=alt.Y('c:Q', title='Stock Price'),
+                # )
+                # st.altair_chart(c)
 
 
 
