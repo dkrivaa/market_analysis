@@ -188,8 +188,12 @@ def ticker():
             dfc['t'] = pd.to_datetime(dfc['t'], unit='s')
             dfc['t'] = dfc['t'].dt.date
 
+            c = alt.Chart(dfc).mark_line().encode(
+                x = dfc['t'].tolist(),
+                y = dfc['c'].tolist()
+            )
 
-
+            st.altair_chart(c)
             st.write(dfc)
 
 
