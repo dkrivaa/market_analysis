@@ -191,7 +191,7 @@ def ticker():
                 dfc['t'] = pd.to_datetime(dfc['t'], unit='s')
                 dfc['t'] = dfc['t'].dt.date
 
-                if dfc['price'][0] < dfc['price'][-1]:
+                if dfc.loc[dfc['price'][0]] < dfc.loc[dfc['price'][-1]]:
                     color = '#419C26'
                 else:
                     color = '#9C3426'
