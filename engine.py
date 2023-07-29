@@ -202,7 +202,8 @@ def ticker():
             )
 
             st.altair_chart(c)
-            st.write(dfc)
+            st.write(date_list)
+            st.write(price_list)
 
 
 
