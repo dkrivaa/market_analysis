@@ -131,7 +131,8 @@ def ticker():
     st.markdown(f'<span style="color: #18448c; font-size: 22px"><b>Choose Ticker/Company</b></span>'
                 , unsafe_allow_html=True)
 
-    # def tick_to_name():
+    def tick_to_name():
+        st.session_state.name = df.loc[df['symbol'] == st.session_state.ticker, ['marketCap']]
     #     st.session_state.name = df.loc[df['symbol'] == st.session_state.ticker, ['company name']]
     # #
     # def name_to_tick():
@@ -144,8 +145,7 @@ def ticker():
                                   key='ticker')
 
         with cols[1]:
-            name = st.selectbox('Choose Company', options=df['company name'],
-                                key='name')
+            name = st.number_input('Choose Company', key='name')
 
 
     st.write(st.session_state)
