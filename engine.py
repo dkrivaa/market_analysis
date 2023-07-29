@@ -90,7 +90,7 @@ def big_10():
     big_10['color'] = big_10['change'].apply(lambda x: '#D51A05' if x < 0 else '#56BF11')
     c = alt.Chart(big_10).mark_bar().encode(
         x=alt.X('change', axis=alt.Axis(format='%')),
-        y='company name',
+        y=alt.Y('company name').sort('-x'),
         color=alt.Color('color:N', scale=None)
     ).properties(
         title={
