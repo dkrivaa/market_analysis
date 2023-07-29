@@ -186,7 +186,7 @@ def ticker():
             # Making dataframe with all stock data
             dfc = pd.DataFrame(nested_data)
             dfc.drop('o', axis=1, inplace=True)
-            dfc['t'] = (datetime.datetime.fromtimestamp(dfc['t'])).strftime("%Y-%m-%d %H:%M:%S %Z")
+            dfc['t'] = (datetime.fromtimestamp(dfc['t'])).strftime("%Y-%m-%d %H:%M:%S %Z")
 
 
 
