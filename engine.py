@@ -182,6 +182,7 @@ def ticker():
             nested_data = company_data['data']
             # Making dataframe with all stock data
             dfc = pd.DataFrame(nested_data)
+            dfc.drop('o', axis=1, inplace=True)
 
             st.write(dfc)
 
