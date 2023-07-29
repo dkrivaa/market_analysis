@@ -143,11 +143,11 @@ def ticker():
         cols = st.columns(2)
         with cols[0]:
             ticker = st.selectbox('Choose Ticker', options=df['symbol'],
-                                  key='ticker', on_change=tick_to_name())
+                                  key='ticker', on_change=tick_to_name)
 
         with cols[1]:
             name = st.selectbox('Choose Company', options=df['company name'],
-                                key='name', on_change=name_to_tick())
+                                key='name', on_change=name_to_tick)
 
     st.write(st.session_state)
     st.write(df)
