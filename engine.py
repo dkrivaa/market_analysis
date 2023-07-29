@@ -191,7 +191,7 @@ def ticker():
             date_list = []
             price_list = []
             for i in range(0,len(dfc)):
-                d = str(dfc['t'][i].strftime("%d.%m.%Y"))
+                d = dfc['t'][i].strftime("%d.%m.%Y")
                 date_list.append(d)
                 p = float(dfc['c'][i])
                 price_list.append(p)
@@ -200,7 +200,7 @@ def ticker():
             st.write(price_list)
 
             c = alt.Chart(dfc).mark_line().encode(
-                x=date_list,
+                x='',
                 y=alt.Y(price_list, )
             )
 
