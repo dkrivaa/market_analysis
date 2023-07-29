@@ -191,7 +191,12 @@ def ticker():
                 dfc['t'] = pd.to_datetime(dfc['t'], unit='s')
                 dfc['t'] = dfc['t'].dt.date
 
-                c = alt.Chart(dfc, title='Last 12 Months').mark_line(color='#9C3426').encode(
+                if dfc['price'][0] < dfc['price'][-1]:
+                    color = '#419C26'
+                else:
+                    color = '#9C3426'
+
+                c = alt.Chart(dfc, title='Last 12 Months').mark_line(color=color).encode(
                     x=alt.X('t:T', title='Date', ),
                     y=alt.Y('c:Q', title='Stock Price'),
                 )
