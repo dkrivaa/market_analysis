@@ -162,48 +162,41 @@ def ticker():
     st.markdown('___')
 
     with st.container():
-        if 'company' in st.session_state:
-            cname = ((st.session_state.company['company name']).tolist())[0]
-            price = float(st.session_state.company['price'])
-            calc = float(st.session_state.company['change']) / 100
-            chg = f'{calc:.2%}'
-            st.write('latest change:')
-            st.metric(f"{cname}",
-                      value=f"{price}",
-                      delta=f"{chg}")
+        cols = st.columns([1, 3])
+        with cols[0]:
+            if 'company' in st.session_state:
+                cname = ((st.session_state.company['company name']).tolist())[0]
+                price = float(st.session_state.company['price'])
+                calc = float(st.session_state.company['change']) / 100
+                chg = f'{calc:.2%}'
+                st.write('latest change:')
+                st.metric(f"{cname}",
+                          value=f"{price}",
+                          delta=f"{chg}")
 
-            # Getting 1 year data for chosen company
-            url = 'https://stockanalysis.com/api/charts/s/' + str(st.session_state.ticker) + '/1Y/l'
+            with cols[1]:
+                # Getting 1 year data for chosen company
+                url = 'https://stockanalysis.com/api/charts/s/' + str(st.session_state.ticker) + '/1Y/l'
 
-            response = requests.get(url)
-            # Check if the request was successful (status code 200)
-            if response.status_code == 200:
-                # Parse the JSON data
-                company_data = json.loads(response.text)
-            # Extract data
-            nested_data = company_data['data']
-            # Making dataframe with all stock data
-            dfc = pd.DataFrame(nested_data)
-            dfc.drop('o', axis=1, inplace=True)
-            dfc['t'] = pd.to_datetime(dfc['t'], unit='s')
-            dfc['t'] = dfc['t'].dt.date
+                response = requests.get(url)
+                # Check if the request was successful (status code 200)
+                if response.status_code == 200:
+                    # Parse the JSON data
+                    company_data = json.loads(response.text)
+                # Extract data
+                nested_data = company_data['data']
+                # Making dataframe with all stock data
+                dfc = pd.DataFrame(nested_data)
+                dfc.drop('o', axis=1, inplace=True)
+                dfc['t'] = pd.to_datetime(dfc['t'], unit='s')
+                dfc['t'] = dfc['t'].dt.date
 
-            date_list = []
-            price_list = []
-            for i in range(0,len(dfc)):
-                d = (dfc['t'][i].strftime("%d.%m.%Y"))
-                date_list.append(d)
-                p = float(dfc['c'][i])
-                price_list.append(p)
+                c = alt.Chart(dfc).mark_line().encode(
+                    x='t:T',
+                    y='c:Q',
+                )
+                st.altair_chart(c)
 
-            c = alt.Chart(dfc).mark_line().encode(
-                x='t:T',
-                y='c:Q',
-            )
-
-            st.altair_chart(c)
-            st.write(date_list)
-            st.write(price_list)
 
 
 
