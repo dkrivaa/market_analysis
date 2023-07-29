@@ -133,14 +133,18 @@ def ticker():
 
     def get_data_ticker():
         company = df.loc[df['symbol'] == st.session_state.ticker]
+        if 'company' not in st.session_state:
+            st.session_state.company = company
 
     def get_data_name():
         company = df.loc[df['company name'] == st.session_state.name]
+        if 'company' not in st.session_state:
+            st.session_state.company = company
 
     with st.container():
         cols = st.columns(2)
         with cols[0]:
-            ticker = st.selectbox('Choose Ticker            or', options=df['symbol'],
+            ticker = st.selectbox('Choose Ticker', options=df['symbol'],
                                   key='ticker', on_change=get_data_ticker)
 
         with cols[1]:
