@@ -196,12 +196,6 @@ def ticker():
                 p = float(dfc['c'][i])
                 price_list.append(p)
 
-            st.write(date_list)
-            st.write(price_list)
-
-            st.write(type(date_list[0]))
-            st.write(type(price_list[0]))
-
             c = alt.Chart(dfc).mark_line().encode(
                 x='date_list:T',
                 y='price_list:Q',
