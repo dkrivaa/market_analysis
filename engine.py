@@ -137,6 +137,7 @@ def ticker():
             st.session_state.company = company
         else:
             st.session_state.company = company
+        st.session_state.name = ((st.session_state.company['company name']).tolist())[0]
 
     def get_data_name():
         company = df.loc[df['company name'] == st.session_state.name]
