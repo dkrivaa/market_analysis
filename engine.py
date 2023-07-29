@@ -132,7 +132,8 @@ def ticker():
                 , unsafe_allow_html=True)
 
     def tick_to_name():
-        st.session_state.name = df.loc[df['symbol'] == st.session_state.ticker, ['company name']]
+        if 'ticker' in st.session_state:
+            st.session_state.name = df.loc[df['symbol'] == st.session_state.ticker, ['company name']]
 
     def name_to_tick():
         pass
