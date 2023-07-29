@@ -156,9 +156,13 @@ def ticker():
                                 key='name', on_change=get_data_name)
 
     if 'company' in st.session_state:
-        st.metric(f" Stock Price {st.session_state.company['company name']}",
-                  value=f"{st.session_state.company['price']}",
-                  delta=f"{st.session_state.company['change']}")
+        name = st.session_state.company['company name']
+        price = st.session_state.company['price']
+        calc = float(st.session_state.company['change'])/100
+        chg = f'{calc:.2%}'
+        st.metric(f" Stock Price {name}",
+                  value=f"{price}",
+                  delta=f"{chg}")
 
 
     st.write(st.session_state)
