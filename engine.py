@@ -190,8 +190,8 @@ def ticker():
                 dfc.drop('o', axis=1, inplace=True)
                 dfc['t'] = pd.to_datetime(dfc['t'], unit='s')
                 dfc['t'] = dfc['t'].dt.date
-
-                st.write(dfc.loc[len(dfc), 'c'])
+                length = len(dfc)
+                st.write(dfc.loc[length, 'c'])
 
                 # if dfc.loc[0, 'c'] < dfc.loc[len(dfc), 'c']:
                 #     color = '#419C26'
