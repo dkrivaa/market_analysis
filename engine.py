@@ -153,6 +153,7 @@ def ticker():
 
 
     st.write(st.session_state)
+    st.write(name)
     st.write(df)
 
 
