@@ -192,7 +192,7 @@ def ticker():
                 dfc['t'] = dfc['t'].dt.date
 
                 st.write(dfc.loc[0, 'c'])
-                st.write(dfc.loc[len(dfc), 'c'])
+                st.write(dfc['c'].iloc[-1])
 
                 # if dfc.loc[0, 'c'] < dfc.loc[len(dfc), 'c']:
                 #     color = '#419C26'
