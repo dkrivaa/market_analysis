@@ -160,7 +160,7 @@ def ticker():
             st.write(st.session_state.company)
 
 
-            cname = str(st.session_state.company['company name'])
+            cname = st.session_state.company['company name'][1]
             price = float(st.session_state.company['price'])
             calc = float(st.session_state.company['change']) / 100
             chg = f'{calc:.2%}'
