@@ -76,7 +76,7 @@ def sector():
     df['color'] = df['value'].apply(lambda x: '#D51A05' if x < 0 else '#56BF11')
     c = alt.Chart(df).mark_bar().encode(
         x=alt.X('value', axis=alt.Axis(format='%')),
-        y='sector',
+        y=alt.Y('sector').sort('-x'),
         color=alt.Color('color:N', scale=None)
     )
     st.altair_chart(c)
