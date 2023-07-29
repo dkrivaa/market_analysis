@@ -137,7 +137,6 @@ def ticker():
             st.session_state.company = company
         else:
             st.session_state.company = company
-        get_company_data()
 
     def get_data_name():
         company = df.loc[df['company name'] == st.session_state.name]
@@ -145,17 +144,6 @@ def ticker():
             st.session_state.company = company
         else:
             st.session_state.company = company
-        get_company_data()
-
-    def get_company_data():
-        if 'company' in st.session_state:
-            cname = st.session_state.company['company name'][1]
-            price = st.session_state.company['price'][1]
-            calc = float(st.session_state.company['change']) / 100
-            chg = f'{calc:.2%}'
-            st.metric(f" Stock Price {cname}",
-                      value=f"{price}",
-                      delta=f"{chg}")
 
     with st.container():
         cols = st.columns(2)
@@ -167,7 +155,15 @@ def ticker():
             name = st.selectbox('Choose Company', options=df['company name'],
                                 key='name', on_change=get_data_name)
 
-
+    with st.container():
+        if 'company' in st.session_state:
+            cname = st.session_state.company['company name'][1]
+            price = st.session_state.company['price'][1]
+            calc = float(st.session_state.company['change']) / 100
+            chg = f'{calc:.2%}'
+            st.metric(f" Stock Price {cname}",
+                      value=f"{price}",
+                      delta=f"{chg}")
 
 
     st.write(st.session_state)
