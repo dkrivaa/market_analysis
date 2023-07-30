@@ -177,7 +177,7 @@ def ticker():
 
 
             with cols[1]:
-                # Getting 1 year data for chosen company
+                # Getting 1-year data for chosen company
                 url = 'https://stockanalysis.com/api/charts/s/' + str(st.session_state.ticker) + '/1Y/l'
 
                 response = requests.get(url)
